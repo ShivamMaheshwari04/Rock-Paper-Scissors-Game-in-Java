@@ -1,0 +1,88 @@
+import java.util.Scanner;
+import java.util.Random;
+
+public class Rock_Paper_Scissors {
+    public static void main(String[] args) {
+        int user_win = 0;
+        int comp_win = 0;
+        int user_inp;
+        int comp_inp;
+        int i=1;
+        while (i<=5){
+            Scanner sc = new Scanner(System.in);
+            Random rand = new Random();
+
+
+            comp_inp = rand.nextInt(3);
+            System.out.println("Rock Paper Scissors Game ");
+            System.out.println("Game Start !!");
+            System.out.println("\n--- Round No. " + i +" ---\n");
+            System.out.println("0--> Rock\n1--> Paper\n2--> scissors");
+            System.out.println("What do you choose : \t");
+            user_inp = sc.nextInt(3);
+            System.out.printf("You Chose %d%n", user_inp);
+            System.out.printf("computer choose %d%n", comp_inp);
+
+
+            System.out.println("-------- Your Result of Round " + i +" --------" );
+
+            if (comp_inp == user_inp) {
+                System.out.println("Its Draw");
+                System.out.println("\n");
+            }
+            else if (comp_inp == 0) {
+                    if (user_inp == 1) {
+                        //Comp-Rock && User-Paper
+                        System.out.println("You Won");
+                        user_win +=1;
+                        System.out.println("\n");
+                    }
+                    else if (user_inp==2) {
+                        System.out.println("Computer Won");
+                        comp_win +=1;
+                        System.out.println("\n");
+                    }
+            }
+            else if (comp_inp == 1) {
+                    if (user_inp == 2) {
+                        //Comp-Paper && User-Scissors
+                        System.out.println("You Won");
+                        user_win +=1;
+                        System.out.println("\n");
+                    } else if (user_inp == 1) {
+                        System.out.println("You Won");
+                        comp_win +=1;
+                        System.out.println("\n");
+                    }
+            }
+            else if (comp_inp == 2) {
+                    if (user_inp == 0) {
+                        //Comp-Scissors && User-Rock
+                        System.out.println("You Won");
+                        user_win +=1;
+                        System.out.println("\n");
+                    } else if (user_inp==1) {
+                        System.out.println("Computer Won");
+                        comp_win +=1;
+                        System.out.println("\n");
+                    }
+            }
+            i++;
+        }
+        System.out.println("\n \n");
+        if(user_win>comp_win){
+            System.out.printf("Congratulation !! You are Winner Because You Win %d times",user_win);
+            System.out.println(" hanks for Playing // Code By Shivam Maheshwari ");
+        }
+        else if (user_win==comp_win) {
+            System.out.println("Its Draw");
+            System.out.println(" Thanks for Playing // Code By Shivam Maheshwari ");
+        }
+        else {
+            System.out.printf("Sorry But Computer are Winner Because they Win %d times",comp_win);
+            System.out.println(" Thanks for Playing // Code By Shivam Maheshwari ");
+        }
+    }
+}
+
+
